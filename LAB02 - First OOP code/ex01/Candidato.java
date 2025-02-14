@@ -1,4 +1,5 @@
 package ex01;
+
 public class Candidato  {
     String nome;
     String dataNasci;
@@ -8,9 +9,7 @@ public class Candidato  {
     String cargoPretendido;
     boolean reeleicao;
 
-
 void exibirCandidato(){
-
     System.out.println("NOME: " + this.nome);
     System.out.println("DATA NASCIMENTO: " + this.dataNasci);
     System.out.println("GENERO: " + this.genero);
@@ -26,6 +25,5 @@ void exibirCandidato(){
     System.out.println("\n");
     
 }
-
     
 }

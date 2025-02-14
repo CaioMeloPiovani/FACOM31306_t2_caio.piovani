@@ -1,7 +1,6 @@
 package ex01;
 public class Main {
     public static void main(String[] args) {
-
         Candidato c1 = new Candidato();
         c1.nome = "ANDRÉ LUIZ RIBEIRO MAIA";
         c1.dataNasci = "09/08/1984";
@@ -12,7 +11,6 @@ public class Main {
         c1.reeleicao = false;
         c1.exibirCandidato();
         
-
         Candidato c2 = new Candidato();
         c2.nome = "ANTONIO BARBOSA DOS SANTOS JUNIOR";
         c2.dataNasci = "23/07/1988";
@@ -22,7 +20,7 @@ public class Main {
         c2.cargoPretendido = "Prefeito - Filadélfia/ BA";
         c2.reeleicao = false;
         c2.exibirCandidato();
-
+        
         Candidato c3 = new Candidato();
         c3.nome = "JOÃO BATISTA PEREIRA";
         c3.dataNasci = "02/12/1965";
@@ -32,21 +30,13 @@ public class Main {
         c3.cargoPretendido = "Vereador - Filadélfia/ BA";
         c3.reeleicao = true;
         c3.exibirCandidato();
-
-
    
    
    
    
    
     }
-
 }
-
-
-
-
-
 /*
  * Filadélfia 2910859
  */

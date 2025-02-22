@@ -1,15 +1,23 @@
-package ex02;
+package ex04;
 
+import javax.swing.plaf.basic.BasicTreeUI;
 import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
 
+        Candidato[] candidatos = new Candidato[3];
         int op;
         int cand;
-        
+
+
+        candidatos[0] = new Candidato("Andre Luiz Ribeiro Maia", "09/08/1984","MASCULINO", "666.608,15", 25, "Prefeito - Filadélfia/ BA", false);
+        candidatos[1] = new Candidato("ANTONIO BARBOSA DOS SANTOS JUNIOR", "23/07/1988","MASCULINO", "R$ 145.500,00", 55, "Prefeito - Filadélfia/ BA", false);
+        candidatos[2] = new Candidato("JOÃO BATISTA PEREIRA", "02/12/1965","MASCULINO", "R$ 40.000,00", 44888, "Vereador - Filadélfia/ BA", true);
+
+
+        /*
         Candidato c1 = new Candidato();
         c1.setNome("ANDRÉ LUIZ RIBEIRO MAIA");
         c1.setDataNasci("09/08/1984");
@@ -41,6 +49,8 @@ class Main {
         c3.setCargoPretendido("Vereador - Filadélfia/ BA");
         c3.setReeleicao(true);
         c3.exibirCandidato();
+      */
+
 
         System.out.print("Deseja realizar alguma mudanca(1)SIM/(2)NAO: ");
         op = sc.nextInt();
@@ -53,40 +63,34 @@ class Main {
 
             switch (cand) {
                 case 1:
-                c1.alterarDados();
-                System.out.println("");
-                c1.exibirCandidato();
+                    candidatos[0].alterarDados();
+                    candidatos[0].exibirCandidato();
                     break;
 
                 case 2:
-                    c2.alterarDados();
-                    c2.exibirCandidato();
+                    candidatos[1].alterarDados();
+                    candidatos[1].exibirCandidato();
                     break;
-                
+
                 case 3:
-                c3.alterarDados();
-                System.out.println("");
-                c3.exibirCandidato();
+                    candidatos[2].alterarDados();
+                    System.out.println("");
+                    candidatos[2].exibirCandidato();
                     break;
 
                 default:
-                System.out.println("Este candidato nao existe.");
+                    System.out.println("Este candidato nao existe.");
                     break;
             }
-            
-        } else if (op == 2){
-            System.out.println("\n\nPrograma encerrado");
-            System.out.println("Este sao os candidatos cadastrados.\n");
-            c1.exibirCandidato();
-            c2.exibirCandidato();
-            c3.exibirCandidato();
 
+        } else if (op == 2){
+            System.out.println("Programa encerrado");
         }else{
             System.out.println("OPCAO INVALIDA!");
         }
 
     }
-    
+
 
 
 }

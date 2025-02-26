@@ -1,4 +1,4 @@
-package ex04;
+package ex05;
 import java.util.Scanner;
 
 class Candidato {
@@ -38,7 +38,7 @@ class Candidato {
 
 
     }
-
+///* 
     void alterarDados(){
         Scanner sc = new Scanner(System.in);
 
@@ -60,7 +60,6 @@ class Candidato {
             System.out.print("-> ");
             op = sc.nextInt();
             sc.nextLine();
-
 
 
 
@@ -115,11 +114,7 @@ class Candidato {
             }
         }   while(op != 0);
     }
-
-
-
-
-
+  //  */
 
     public String getNome() {
         return nome;
@@ -163,7 +158,5 @@ class Candidato {
     public void setReeleicao(boolean reeleicao) {
         this.reeleicao = reeleicao;
     }
-
-
 
 }

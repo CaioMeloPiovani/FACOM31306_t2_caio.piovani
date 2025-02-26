@@ -1,4 +1,4 @@
-package ex04;
+package ex06;
 import java.util.Scanner;
 
 class Candidato {
@@ -6,12 +6,12 @@ class Candidato {
     private String nome;
     private String dataNasci;
     private String genero;
-    private String patrimonio;
+    private double patrimonio;
     private int numeroPartido;
     private String cargoPretendido;
     private boolean reeleicao;
 //*/
-    public Candidato(String nome, String dataNasci, String genero, String patrimonio, int numeroPartido, String cargoPretendido, boolean reeleicao){
+    public Candidato(String nome, String dataNasci, String genero, double patrimonio, int numeroPartido, String cargoPretendido, boolean reeleicao){
         this.nome = nome;
         this.dataNasci = dataNasci;
         this.genero = genero;
@@ -38,7 +38,7 @@ class Candidato {
 
 
     }
-
+ 
     void alterarDados(){
         Scanner sc = new Scanner(System.in);
 
@@ -65,7 +65,6 @@ class Candidato {
 
 
 
-
             switch (op) {
 
                 case 1:
@@ -85,7 +84,7 @@ class Candidato {
 
                 case 4:
                     System.out.print("Novo Patrimonio: ");
-                    this.patrimonio = sc.nextLine();
+                    this.patrimonio = sc.nextDouble();
                     break;
 
                 case 5:
@@ -115,11 +114,7 @@ class Candidato {
             }
         }   while(op != 0);
     }
-
-
-
-
-
+    //*/
 
     public String getNome() {
         return nome;
@@ -139,10 +134,10 @@ class Candidato {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    public String getPatrimonio() {
+    public double getPatrimonio() {
         return patrimonio;
     }
-    public void setPatrimonio(String patrimonio) {
+    public void setPatrimonio(double patrimonio) {
         this.patrimonio = patrimonio;
     }
     public int getNumeroPartido() {
@@ -163,7 +158,5 @@ class Candidato {
     public void setReeleicao(boolean reeleicao) {
         this.reeleicao = reeleicao;
     }
-
-
 
 }

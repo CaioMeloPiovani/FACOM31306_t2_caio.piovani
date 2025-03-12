@@ -55,8 +55,9 @@ Horista: valor por hora * total de horas trabalhadas.
 
 Crie as classes correspondentes, adicionando atributos e métodos que achar necessários. A classe *Funcionario* deve incluir os campos privados *nome*, *dataNascimento* e *salario*. Além disso, crie uma classe *Empresa*, que conterá o método *main()*. A empresa tem vários funcionários, logo crie um vetor (array) para cada tipo de funcionário, instancie no mínimo 2 exemplos de cada tipo de funcionário. Mostre uma chamada para cálculo do salário
 
-#   
-Crie uma classe chamada {Ingresso}, que possui um valor e um método {escreveValor()}. Em seguida:
+#   Ex06
+Crie uma classe chamada {Ingresso}, que possui um valor e um método {escreveValor()}. Em
+seguida:
 
 Crie uma classe {VIP}, que herda {Ingresso} e possui um valor adicional. Crie um método que retorne o valor do ingresso VIP (com o adicional incluído).
 	

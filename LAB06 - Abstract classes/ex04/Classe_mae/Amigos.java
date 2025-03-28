@@ -32,7 +32,11 @@ public class Amigos extends Contato {
             return "Conhecidos";
 }
 
-
+    public void melhoresAmigos(){
+        if(getGrau() == 1){
+            grauAmizade();
+        }
+    }
 
     @Override
     public void imprimirContato(){

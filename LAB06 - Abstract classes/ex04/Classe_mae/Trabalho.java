@@ -13,4 +13,8 @@ public class Trabalho extends Contato{
         System.out.println("CARGO: " + cargo);
         System.out.println(super.imprimirBasico());
     }
+
+    public String getCargo() {
+        return cargo;
+    }
 }

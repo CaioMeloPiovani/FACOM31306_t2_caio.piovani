@@ -14,6 +14,8 @@ public abstract class Contato {
         
     }
 
+    //public void 
+
     public String imprimirBasico(){
             return "NOME: " + nome + "\nAPELIDO: " + apelido + "\nEMAIL: " + email + "\nANIVERSARIO:" + aniversario;
 

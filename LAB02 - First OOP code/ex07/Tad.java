@@ -1,4 +1,4 @@
-package ex07;
+//package ex07;
 
 public class Tad {
     private String nome;

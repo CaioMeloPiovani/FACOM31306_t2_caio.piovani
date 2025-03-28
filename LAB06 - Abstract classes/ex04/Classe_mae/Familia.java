@@ -8,11 +8,18 @@ public class Familia extends Contato {
         this.parentesco = parentesco;
     
     }
+    
+
     @Override
     public void imprimirContato() {
         System.out.println("PARENTESCO: " + parentesco);
         System.out.println(super.imprimirBasico());
 
+    }
+
+
+    public String getParentesco() {
+        return parentesco;
     }
 
 }

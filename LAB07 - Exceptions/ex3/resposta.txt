@@ -1,0 +1,4 @@
+Qual a diferença entre o throw e throws ? Justifique explicado o que cada comando faz
+
+-> o Throw ele consegue gerar uma excecao no codigo, fazendo uma parada do programa para exibir o erro detalhadamene.
+ja o throws eh usado num metodo para indicar que ele pode conter excecoes, mas nao necessariamente corrija-las ou "avistar" esses erros 

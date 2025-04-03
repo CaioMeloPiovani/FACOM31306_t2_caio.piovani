@@ -25,7 +25,7 @@ public class Operacao {
     }
 
     public int dividir(int numerador, int denominador) throws DivisaPorZeroException{
-        if(denominador > 0){
+        if(denominador <= 0){
             throw new DivisaPorZeroException("Divisao por zero n pode");
         }
         

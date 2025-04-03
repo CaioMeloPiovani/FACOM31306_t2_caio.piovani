@@ -95,8 +95,9 @@ public class Main {
 
         Dueto maiorRemuneracao = duetos[0];
         for(int i = 1; i < n; i++){
-            if(duetos[i].CalculoRemuneracao() > maiorRemuneracao.CalculoRemuneracao());
+            if(duetos[i].CalculoRemuneracao() > maiorRemuneracao.CalculoRemuneracao()){
                 maiorRemuneracao = duetos[i];
+            }
         }
 
         System.out.println("DUETO COM MAIOR REMUNERACAO POR HORA");

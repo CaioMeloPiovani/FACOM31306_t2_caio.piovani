@@ -103,7 +103,12 @@ public class Main {
         System.out.println("DUETO COM MAIOR REMUNERACAO POR HORA");
             System.out.println(maiorRemuneracao);
 
+        for (int i = 0; i < duetos.length; i++) {
+                duetos[i] = null;
+                System.out.println(duetos[i]);
+            }
             
+        //System.out.println(duetos[i]);
 
         sc.close();
     }

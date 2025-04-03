@@ -12,13 +12,13 @@ public class Musico {
     }
 
 
-
     public String toString() {
-        return "\nNOME: " + nome + "\nPAPEL: " + papel + "\nEXPERIENCIA: " + experiencia + "\nREMUNERACAO: " + remuneracao;
+        return "\nNOME: " + nome + "\nPAPEL: " + papel + "\nEXPERIENCIA: " + experiencia + "\nREMUNERACAO: "
+                + remuneracao;
     }
 
 
-
+    
     public String getNome() {
         return nome;
     }

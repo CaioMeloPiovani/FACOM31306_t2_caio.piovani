@@ -17,8 +17,6 @@ public class Main {
 
         Dueto[] duetos = new Dueto[n];
 
-
-
         System.out.println(" === Cadastro do Dueto === ");
         for (int i = 0; i < n; i++) {
             System.out.print("Nome Dueto: ");

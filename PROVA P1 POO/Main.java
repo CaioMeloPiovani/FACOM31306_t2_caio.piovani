@@ -10,7 +10,6 @@ public class Main {
         //Dueto duetoComSubs, duetoSemSubs;
 
         //Dueto[] duetos = new Dueto[n];
-
         System.out.print("Quantos Duetos deseja Cadastrar: ");
         n = sc.nextInt();
         sc.nextLine();

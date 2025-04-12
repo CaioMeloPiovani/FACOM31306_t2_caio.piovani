@@ -4,7 +4,7 @@ public class Produto implements Classificavel{
     public Produto(int codigo){
         this.codigo = codigo;
     }
-    
+
     @Override
     public boolean eMenorQue(Classificavel produtoComparado){
         Produto compara = (Produto) produtoComparado;
@@ -13,6 +13,14 @@ public class Produto implements Classificavel{
         } else {
             return false;
         }
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
 }

@@ -34,15 +34,13 @@ public class Conta implements Serializable {
     }
 
     // VERIFICAR SENHA ASSOCIADA
-    public boolean verificarSenha(String senhaInformada) {
-        if (senhaInformada.equals(this.senha)) {
-            return true;
-        } else {
-            System.out.println("Senha incorreta. Tente novamente.");
-            return false; // Senha incorreta
-        }
-
+public boolean verificarSenha(String senhaInformada) throws TratamentoClienteExc {
+    if (senhaInformada.equals(this.senha)) {
+        return true;
+    } else {
+        throw new TratamentoClienteExc("Senha incorreta. operacao cancelada.");
     }
+}
 
     private List<Clientes> clientes = new ArrayList<>();
 

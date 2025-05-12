@@ -54,3 +54,14 @@ public class ValidaCPF {
                 CPF.substring(6, 9) + "-" + CPF.substring(9, 11);
     }
 }
+
+
+
+
+/*
+ * 
+ * CODIGO VALIDA CPF RETIRADO DO SITE:
+ * https://www.devmedia.com.br/validando-o-cpf-em-uma-aplicacao-java/22097
+ * 
+ * 
+ */

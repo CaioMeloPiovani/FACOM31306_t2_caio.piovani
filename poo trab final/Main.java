@@ -8,7 +8,7 @@ public class Main {
             System.out.println("1. Acesso Administrativo");
             System.out.println("2. Acesso Cliente");
             System.out.println("0. Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
             int opcao = sc.nextInt();
 
             switch (opcao) {
@@ -22,7 +22,7 @@ public class Main {
                     System.out.println("Encerrando sistema...");
                     return;
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println("Opçao invalida.");
                 
                 sc.close();
             }

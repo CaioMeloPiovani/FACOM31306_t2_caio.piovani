@@ -1,12 +1,8 @@
 import java.time.LocalDateTime;
 
 public class Funcionario extends Pessoa {
-    // private String cpf;
-    // private String nome;
     private String nroCarteiraTrab;
     private String rg;
-    // private String dataNascimento;
-    // private String endereco;
     private String sexo;
     private String estadoCivil;
     private String cargo;

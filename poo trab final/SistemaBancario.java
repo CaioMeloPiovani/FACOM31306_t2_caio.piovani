@@ -22,6 +22,9 @@ public class SistemaBancario {
             System.out.println("4. Criar conta");
             System.out.println("5. Mostrar dados de contas");
             System.out.println("6. Salario Funcionario: ");
+            System.out.println("7. Salvar Dados: ");
+            System.out.println("8. Carregar Dados: ");
+
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = Integer.parseInt(sc.nextLine());
@@ -77,17 +80,13 @@ public class SistemaBancario {
                     realizarTransacao();
                     break;
                 case 2:
-                    mostrarContas();/////////
+                    mostrarContas();
                     break;
 
-
-
                 case 3:
-                consultarSaldo();
-                break;
+                    consultarSaldo();
+                    break;
 
-
-                
                 default:
                     System.out.println("Opção inválida!");
             }
@@ -108,8 +107,20 @@ public class SistemaBancario {
         String bairro = sc.nextLine();
 
         System.out.println("--- Cadastro do Gerente ---");
-        System.out.print("CPF: ");
-        String cpf = sc.nextLine();
+        String cpf = "";
+        boolean cpfValido = false;
+        while (!cpfValido) {
+            System.out.print("CPF: ");
+            cpf = sc.nextLine();
+
+            // Valida o CPF usando a classe ValidaCPF
+            if (ValidaCPF.isCPF(cpf)) {
+                cpfValido = true; // CPF válido
+            } else {
+                System.out.println("CPF inválido. Tente novamente.");
+            }
+        }
+
         System.out.print("Nome: ");
         String nomeG = sc.nextLine();
         System.out.print("Carteira Trab: ");
@@ -146,9 +157,28 @@ public class SistemaBancario {
     }
 
     private static void cadastrarCliente() {
+
         System.out.println("--- Cadastro de Cliente ---");
-        System.out.print("CPF: ");
-        String cpf = sc.nextLine();
+
+
+String cpf = "";
+boolean cpfValido = false;
+while (!cpfValido) {
+    System.out.print("CPF: ");
+    cpf = sc.nextLine();
+
+    // Valida o CPF usando a classe ValidaCPF
+    if (ValidaCPF.isCPF(cpf)) {
+        cpfValido = true;  // CPF válido
+    } else {
+        System.out.println("CPF inválido. Tente novamente.");
+    }
+}
+
+
+
+
+
         System.out.print("Nome: ");
         String nome = sc.nextLine();
         System.out.print("Endereço: ");
@@ -189,8 +219,23 @@ public class SistemaBancario {
 
     private static void cadastrarFuncionario() {
         System.out.println("--- Cadastro de Funcionário ---");
-        System.out.print("CPF: ");
-        String cpf = sc.nextLine();
+
+String cpf = "";
+boolean cpfValido = false;
+while (!cpfValido) {
+    System.out.print("CPF: ");
+    cpf = sc.nextLine();
+
+    // Valida o CPF usando a classe ValidaCPF
+    if (ValidaCPF.isCPF(cpf)) {
+        cpfValido = true;  // CPF válido
+    } else {
+        System.out.println("CPF inválido. Tente novamente.");
+    }
+}
+
+
+
         System.out.print("Nome: ");
         String nome = sc.nextLine();
         System.out.print("Carteira Trab: ");
@@ -279,8 +324,13 @@ public class SistemaBancario {
 
         System.out.print("Senha: ");
         String senha = sc.nextLine();
-        if (!conta.verificarSenha(senha))
+        try {
+            if (!conta.verificarSenha(senha))
+                return;
+        } catch (TratamentoClienteExc e) {
+            System.out.println(e.getMessage());
             return;
+        }
 
         System.out.print("Tipo (SAQUE, DEPOSITO, TRANSFERENCIA, SALDO): ");
         String tipo = sc.nextLine().toUpperCase();
@@ -298,33 +348,37 @@ public class SistemaBancario {
         conta.transacao(t);
     }
 
-private static void mostrarContas() {
-    System.out.print("Número da conta: ");
-    String numero = sc.nextLine();
-    Conta conta = contas.stream().filter(c -> c.getNumeroConta().equals(numero)).findFirst().orElse(null);
+    private static void mostrarContas() {
+        System.out.print("Número da conta: ");
+        String numero = sc.nextLine();
+        Conta conta = contas.stream().filter(c -> c.getNumeroConta().equals(numero)).findFirst().orElse(null);
 
-    if (conta == null) {
-        System.out.println("Conta não encontrada!");
-        return;
+        if (conta == null) {
+            System.out.println("Conta não encontrada!");
+            return;
+        }
+
+        System.out.print("Senha: ");
+        String senha = sc.nextLine();
+
+        try {
+            if (!conta.verificarSenha(senha)) {
+                throw new TratamentoClienteExc("Senha incorreta.");
+            }
+        } catch (TratamentoClienteExc e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+
+        // Exibe as informações da conta consultada
+        System.out.println("Tipo da conta: " + conta.getTipo());
+        System.out.println("Número: " + conta.getNumeroConta() + ", Saldo: " + conta.getSaldoAtual());
+        System.out.println("Clientes associados: ");
+        for (Clientes cl : conta.getClientes()) {
+            System.out.println("- " + cl.getNome() + " (CPF: " + cl.getCpf() + ")");
+        }
+        System.out.println();
     }
-
-    System.out.print("Senha: ");
-    String senha = sc.nextLine();
-    if (!conta.verificarSenha(senha)) {
-        System.out.println("Senha incorreta.");
-        return;
-    }
-
-    // Exibe as informações da conta consultada
-    System.out.println("Tipo da conta: " + conta.getTipo());
-    System.out.println("Número: " + conta.getNumeroConta() + ", Saldo: " + conta.getSaldoAtual());
-    System.out.println("Clientes associados: ");
-    for (Clientes cl : conta.getClientes()) {
-        System.out.println("- " + cl.getNome() + " (CPF: " + cl.getCpf() + ")");
-    }
-    System.out.println();
-}
-
 
     private static Agencia selecionarAgencia() {
         System.out.println("Selecione uma agência: ");
@@ -344,9 +398,8 @@ private static void mostrarContas() {
         return clientes.get(escolha - 1);
     }
 
-
-    private static void consultarSaldo(){
-                System.out.print("Número da conta: ");
+    private static void consultarSaldo() {
+        System.out.print("Número da conta: ");
         String numero = sc.nextLine();
         Conta conta = contas.stream().filter(c -> c.getNumeroConta().equals(numero)).findFirst().orElse(null);
 
@@ -357,45 +410,48 @@ private static void mostrarContas() {
 
         System.out.print("Senha: ");
         String senha = sc.nextLine();
-        if (!conta.verificarSenha(senha))
-            return;
 
-        System.out.println("Saldo da Conta:" + conta.getSaldoAtual());
-    }
+        try {
+            if (!conta.verificarSenha(senha)) {
+                return;
+            }
 
-        private static void mostrarSalario() {
-    for (Funcionario f : funcionarios) {
-        if (f instanceof Gerente) {
-            // Fazendo casting para Gerente
-            Gerente g = (Gerente) f;
-            System.out.println("Salário do Gerente " + g.getNome() + ": " + g.calcularSalario(g.getSalario()));
-        } else {
-            System.out.println("Salário do Funcionário " + f.getNome() + ": " + f.calcularSalario(f.getSalario()));
+            System.out.println("Saldo da Conta: " + conta.getSaldoAtual());
+        } catch (TratamentoClienteExc e) {
+            System.out.println("Erro ao verificar senha: " + e.getMessage());
         }
     }
-}
 
-public static void salvarDados() {
-    try {
-        Persistencia.salvarObjeto(funcionarios, "funcionarios.txt");
-        Persistencia.salvarObjeto(agencias, "agencias.txt");
-        Persistencia.salvarObjeto(contas, "contas.txt");
-    } catch (IOException e) {
-        System.out.println("Erro ao salvar: " + e.getMessage());
+    private static void mostrarSalario() {
+        for (Funcionario f : funcionarios) {
+            if (f instanceof Gerente) {
+                // Fazendo casting para Gerente
+                Gerente g = (Gerente) f;
+                System.out.println("Salário do Gerente " + g.getNome() + ": " + g.calcularSalario(g.getSalario()));
+            } else {
+                System.out.println("Salário do Funcionário " + f.getNome() + ": " + f.calcularSalario(f.getSalario()));
+            }
+        }
     }
-}
 
-public static void carregarDados() {
-    try {
-        funcionarios = (ArrayList<Funcionario>) Persistencia.carregarObjeto("funcionarios.txt");
-        agencias = (ArrayList<Agencia>) Persistencia.carregarObjeto("agencias.txt");
-        contas = (ArrayList<Conta>) Persistencia.carregarObjeto("contas.txt");
-    } catch (IOException | ClassNotFoundException e) {
-        System.out.println("Erro ao carregar: " + e.getMessage());
+    public static void salvarDados() {
+        try {
+            Persistencia.salvarObjeto(funcionarios, "funcionarios.txt");
+            Persistencia.salvarObjeto(agencias, "agencias.txt");
+            Persistencia.salvarObjeto(contas, "contas.txt");
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar: " + e.getMessage());
+        }
     }
-}
 
-
-
+    public static void carregarDados() {
+        try {
+            funcionarios = (ArrayList<Funcionario>) Persistencia.carregarObjeto("funcionarios.txt");
+            agencias = (ArrayList<Agencia>) Persistencia.carregarObjeto("agencias.txt");
+            contas = (ArrayList<Conta>) Persistencia.carregarObjeto("contas.txt");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Erro ao carregar: " + e.getMessage());
+        }
+    }
 
 }

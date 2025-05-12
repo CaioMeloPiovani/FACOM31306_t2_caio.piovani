@@ -1,18 +1,21 @@
-public class ContaPoupanca extends Conta{
-    private double rendimenteMes;
-    
-    public ContaPoupanca(String numeroConta, double saldoAtual, String dataAbertura, String dataUltimaMovimentacao, String senha, boolean status,
-     double rendimenteMes, Agencia agenciaDaConta){
+
+
+public class ContaPoupanca extends Conta {
+    private double rendimentoMes;
+
+    public ContaPoupanca(String numeroConta, double saldoAtual, String dataAbertura, String dataUltimaMovimentacao,
+            String senha, boolean status,
+            double rendimentoMes, Agencia agenciaDaConta) {
         super(numeroConta, saldoAtual, dataAbertura, dataUltimaMovimentacao, senha, status, agenciaDaConta);
-        this.rendimenteMes = rendimenteMes;
+        this.rendimentoMes = rendimentoMes;
+        setTipo("Conta Poupança");
     }
 
-
-    public double getRendimenteMes() {
-        return rendimenteMes;
+    public double getrendimentoMes() {
+        return rendimentoMes;
     }
 
-    public void setRendimenteMes(double rendimenteMes) {
-        this.rendimenteMes = rendimenteMes;
-    }    
+    public void setrendimentoMes(double rendimentoMes) {
+        this.rendimentoMes = rendimentoMes;
+    }
 }

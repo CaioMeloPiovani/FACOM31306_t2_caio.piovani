@@ -1,15 +1,20 @@
-public abstract class Pessoa {
+
+import java.io.Serializable;
+
+public abstract class Pessoa implements Serializable {
     private String cpf;
     private String nome;
     private String dataNascimento;
     private String endereco;
-    
-    public Pessoa(String cpf, String nome, String dataNascimento, String endereco){
+
+    public Pessoa(String cpf, String nome, String dataNascimento, String endereco) {
         this.cpf = cpf;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
     }
+
+    public abstract String gerarResumo();
 
     public String getCpf() {
         return cpf;

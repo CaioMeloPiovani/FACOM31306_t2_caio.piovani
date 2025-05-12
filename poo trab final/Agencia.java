@@ -1,12 +1,16 @@
-public class Agencia {
+
+import java.io.Serializable;
+
+public class Agencia implements Serializable {
     private int numero;
     private String nome;
     private String cidade;
     private String estado;
     private String bairro;
     private Gerente gerente;
+    private static final long serialVersionUID = 1L;
 
-    public Agencia(int numero, String nome, String cidade, String estado, String bairro, Gerente gerente){
+    public Agencia(int numero, String nome, String cidade, String estado, String bairro, Gerente gerente) {
         this.numero = numero;
         this.nome = nome;
         this.cidade = cidade;
@@ -15,19 +19,13 @@ public class Agencia {
         this.gerente = gerente;
     }
 
-    
     public Gerente getGerente() {
         return gerente;
     }
-    
+
     public void setGerente(Gerente gerente) {
         this.gerente = gerente;
     }
-    
-
-
-
-
 
     public int getNumero() {
         return numero;
@@ -36,7 +34,8 @@ public class Agencia {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-/////////
+
+    /////////
     public String getNome() {
         return nome;
     }
@@ -44,7 +43,8 @@ public class Agencia {
     public void setNome(String nome) {
         this.nome = nome;
     }
-////////
+
+    ////////
     public String getCidade() {
         return cidade;
     }
@@ -52,7 +52,8 @@ public class Agencia {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-/////
+
+    /////
     public String getEstado() {
         return estado;
     }
@@ -60,7 +61,8 @@ public class Agencia {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-//////
+
+    //////
     public String getBairro() {
         return bairro;
     }

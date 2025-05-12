@@ -1,12 +1,15 @@
-public class ContaSalario extends Conta{
+
+public class ContaSalario extends Conta {
     private double limParaSaque;
     private double LimTransferencia;
-    
-    public ContaSalario(String numeroConta, double saldoAtual, String dataAbertura, String dataUltimaMovimentacao, String senha, boolean status,
-     double LimTransferencia, double limParaSaque, Agencia agenciaDaConta){
+
+    public ContaSalario(String numeroConta, double saldoAtual, String dataAbertura, String dataUltimaMovimentacao,
+            String senha, boolean status,
+            double LimTransferencia, double limParaSaque, Agencia agenciaDaConta) {
         super(numeroConta, saldoAtual, dataAbertura, dataUltimaMovimentacao, senha, status, agenciaDaConta);
         this.limParaSaque = limParaSaque;
         this.LimTransferencia = LimTransferencia;
+        setTipo("Conta Salário");
     }
 
     public double getLimParaSaque() {
@@ -24,5 +27,5 @@ public class ContaSalario extends Conta{
     public void setLimTransferencia(double limTransferencia) {
         LimTransferencia = limTransferencia;
     }
-    
+
 }

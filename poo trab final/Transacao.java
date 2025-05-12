@@ -1,18 +1,24 @@
-public class Transacao {
+
+
+import java.io.Serializable;
+
+public class Transacao implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String tipo;
     private double valor;
     private String data;
-    
+
     private Conta conta;
 
-    public Transacao(String tipo, double valor, String data, Conta conta){
+    public Transacao(String tipo, double valor, String data, Conta conta) {
         this.tipo = tipo;
         this.valor = valor;
         this.data = data;
         this.conta = conta;
     }
 
-    public Conta getConta(){
+    public Conta getConta() {
         return conta;
     }
 
@@ -39,5 +45,5 @@ public class Transacao {
     public void setData(String data) {
         this.data = data;
     }
-    
+
 }
